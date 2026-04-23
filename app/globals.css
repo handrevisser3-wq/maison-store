@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Maps to our warm off-white (#FAFAF8) */
+    --background: 60 33% 98%;
+    --foreground: 60 5% 10%;
+
+    --card: 60 33% 98%;
+    --card-foreground: 60 5% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 60 5% 10%;
+
+    /* Primary = deep charcoal */
+    --primary: 60 5% 10%;
+    --primary-foreground: 60 33% 98%;
+
+    /* Secondary = warm parchment */
+    --secondary: 40 25% 93%;
+    --secondary-foreground: 60 5% 10%;
+
+    --muted: 40 20% 94%;
+    --muted-foreground: 60 5% 45%;
+
+    /* Accent = warm gold */
+    --accent: 38 44% 61%;
+    --accent-foreground: 60 5% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 38 44% 61%;
+
+    /* Sharp corners — we handle radius manually per element */
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  /* Smooth letter-spacing helper for headings */
+  .tracking-brand {
+    letter-spacing: 0.06em;
+  }
+}
+
+/* ── Hero animations ─────────────────────────────────────────── */
+
+/* Ken Burns for the single static hero image (legacy, kept for fallback) */
+@keyframes kenBurns {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.08); }
+}
+
+/* Ken Burns per slide — runs for 6 s (matching the slide interval), stays at end */
+@keyframes kenBurnsSlide {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.08); }
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Marquee for mobile brand bar */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-ken-burns {
+  animation: kenBurns 20s ease-out infinite alternate;
+  will-change: transform;
+}
+
+.animate-ken-burns-slide {
+  animation: kenBurnsSlide 6s ease-out forwards;
+  will-change: transform;
+}
+
+/* Seamless marquee — content is duplicated, so -50% is the perfect loop point */
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+.hero-label {
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.1s forwards;
+}
+
+.hero-headline {
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.3s forwards;
+}
+
+.hero-subheading {
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.5s forwards;
+}
+
+.hero-cta {
+  opacity: 0;
+  animation: heroFadeUp 0.9s ease-out 0.9s forwards;
+}
