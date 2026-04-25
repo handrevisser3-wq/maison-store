@@ -66,6 +66,15 @@
   .tracking-brand {
     letter-spacing: 0.06em;
   }
+
+  /* Hide scrollbar while keeping scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* ── Hero animations ─────────────────────────────────────────── */
@@ -112,20 +121,50 @@
 
 .hero-label {
   opacity: 0;
-  animation: heroFadeUp 0.9s ease-out 0.1s forwards;
+  animation: heroFadeUp 0.9s ease-out 0.4s forwards;
 }
 
 .hero-headline {
   opacity: 0;
-  animation: heroFadeUp 0.9s ease-out 0.3s forwards;
+  animation: heroFadeUp 0.9s ease-out 0.6s forwards;
 }
 
 .hero-subheading {
   opacity: 0;
-  animation: heroFadeUp 0.9s ease-out 0.5s forwards;
+  animation: heroFadeUp 0.9s ease-out 0.8s forwards;
 }
 
 .hero-cta {
   opacity: 0;
-  animation: heroFadeUp 0.9s ease-out 0.9s forwards;
+  animation: heroFadeUp 0.9s ease-out 1.2s forwards;
+}
+
+/* ── Reviews + Brand bar side-by-side row ────────────────────── */
+.reviews-trust-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+.reviews-trust-row > *:first-child {
+  flex: 1.6;
+}
+
+.reviews-trust-row > *:last-child {
+  flex: 1;
+  padding-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .reviews-trust-row {
+    flex-direction: column;
+    gap: 48px;
+    padding: 60px 24px;
+  }
 }

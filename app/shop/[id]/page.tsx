@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { getProductById, products } from "@/lib/products";
 import ProductDetail from "@/components/ProductDetail";
+import ProductReviews from "@/components/ProductReviews";
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -45,6 +46,9 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Full product detail — image gallery + variant selection + cart */}
       <ProductDetail product={product} />
+
+      {/* Customer reviews for this product */}
+      <ProductReviews productId={product.id} />
     </div>
   );
 }

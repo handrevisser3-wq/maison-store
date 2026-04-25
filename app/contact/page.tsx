@@ -70,7 +70,7 @@ export default function ContactPage() {
                     <p className="text-xs tracking-widest uppercase text-stone mb-1">
                       WhatsApp
                     </p>
-                    <p className="font-serif text-charcoal">+27 (0) 00 000 0000</p>
+                    <p className="font-serif text-charcoal">060 123 4567</p>
                     <p className="text-sm text-stone mt-1">
                       Quickest way to reach us — available Mon–Fri, 9am–6pm
                     </p>
@@ -85,7 +85,7 @@ export default function ContactPage() {
                     <p className="text-xs tracking-widest uppercase text-stone mb-1">
                       Email
                     </p>
-                    <p className="font-serif text-charcoal">hello@maisonstore.co.za</p>
+                    <p className="font-serif text-charcoal">handrevisser3@gmail.com</p>
                     <p className="text-sm text-stone mt-1">
                       We respond to all emails within one business day
                     </p>

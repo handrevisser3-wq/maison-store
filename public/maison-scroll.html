@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAISON — Curated with intention.</title>
+
+  <!-- Google Fonts: Cormorant Garamond -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- GSAP Core -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger Plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ─── CSS VARIABLES ──────────────────────────────────────────────── */
+    :root {
+      --color-bg:     #EDE8E1;
+      --color-dark:   #2C2520;
+      --color-mid:    #8C7B6E;
+      --font-serif:   'Cormorant Garamond', serif;
+      --shadow-soft:  0 40px 80px rgba(0, 0, 0, 0.10);
+    }
+
+    /* ─── RESET & BASE ───────────────────────────────────────────────── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--color-bg);
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-dark);
+      font-family: var(--font-serif);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── 1. HERO SECTION ───────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-bg);
+    }
+
+    .hero-wordmark {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(3rem, 10vw, 8rem);
+      letter-spacing: 0.45em;
+      color: var(--color-dark);
+      text-transform: uppercase;
+      /* Trim trailing letter-spacing so it looks truly centred */
+      margin-right: -0.45em;
+      will-change: transform;
+    }
+
+    .hero-subtitle {
+      margin-top: 1.4rem;
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: clamp(0.75rem, 1.8vw, 1rem);
+      letter-spacing: 0.35em;
+      text-transform: lowercase;
+      font-variant: small-caps;
+      color: var(--color-mid);
+      will-change: transform;
+    }
+
+    /* Scroll indicator — bottom-centre of hero */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scroll-label {
+      font-family: var(--font-serif);
+      font-size: 0.6rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+    }
+
+    .scroll-line-wrap {
+      position: relative;
+      width: 1px;
+      height: 56px;
+      background: rgba(44, 37, 32, 0.18);
+      overflow: hidden;
+    }
+
+    /* Animated dot travels down the line */
+    .scroll-dot {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--color-dark);
+      animation: scrollDrop 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollDrop {
+      0%   { top: -6px; opacity: 0; }
+      20%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { top: calc(100% + 6px); opacity: 0; }
+    }
+
+    /* ─── 2. VIDEO SCRUB SECTION ─────────────────────────────────────── */
+
+    /*
+     * LAYOUT PRINCIPLE:
+     * .video-scrub-section  — tall wrapper (250vh) that provides the scroll distance
+     * .video-sticky-container — pinned element (100vh) that GSAP ScrollTrigger holds
+     *                           fixed while the user scrolls through the wrapper
+     */
+    .video-scrub-section {
+      position: relative;
+      height: 250vh; /* scroll distance — luxuriously slow */
+      background-color: var(--color-bg);
+    }
+
+    /* This inner element gets pinned by ScrollTrigger */
+    .video-sticky-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-bg);
+      will-change: transform;
+    }
+
+    .video-inner {
+      width: 100%;
+      max-width: 900px;
+      padding: 0 24px;
+    }
+
+    /* VIDEO: replace with your file path */
+    .scrub-video {
+      width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: var(--shadow-soft), 0 40px 80px rgba(0, 0, 0, 0.12);
+      opacity: 0.6; /* starts slightly faded — ScrollTrigger fades to 1.0 */
+      will-change: opacity;
+      /* Prevent browser from showing native controls or default play behaviour */
+      pointer-events: none;
+    }
+
+    /* ─── 3. DIVIDER ────────────────────────────────────────────────── */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(44, 37, 32, 0.15);
+      margin: 0;
+    }
+
+    /* ─── 4. FEATURED PRODUCTS SECTION ─────────────────────────────── */
+    .featured-products {
+      background-color: var(--color-bg);
+      padding: 120px 40px 80px;
+    }
+
+    .featured-heading-wrap {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .featured-eyebrow {
+      display: block;
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--color-mid);
+      margin-bottom: 18px;
+    }
+
+    .featured-heading {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+      /* Trim trailing letter-spacing */
+      margin-right: -0.3em;
+    }
+
+    /* Product grid: 3 columns on desktop */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .product-card {
+      cursor: pointer;
+      will-change: transform;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    /* Warm beige 3:4 image placeholder */
+    .product-image {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background-color: #D9D2C8; /* slightly darker warm tone */
+      margin-bottom: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle inner texture on placeholder */
+    .product-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        160deg,
+        rgba(255,255,255,0.12) 0%,
+        transparent 60%
+      );
+    }
+
+    .product-name {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      color: var(--color-dark);
+      margin-bottom: 6px;
+    }
+
+    .product-price {
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      color: var(--color-mid);
+      margin-bottom: 16px;
+    }
+
+    /* "Add to Box" — minimal text button */
+    .product-btn {
+      display: inline-block;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: var(--font-serif);
+      font-weight: 300;
+      font-size: 0.7rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      color: var(--color-dark);
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .product-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-dark);
+      transition: width 0.35s ease;
+    }
+
+    .product-btn:hover::after {
+      width: 100%;
+    }
+
+    /* ─── RESPONSIVE: Mobile ≤ 768px ─────────────────────────────────── */
+    @media (max-width: 768px) {
+      /* Reduce scrub section to 180vh on mobile */
+      .video-scrub-section {
+        height: 180vh;
+      }
+
+      /* Full-width video on mobile */
+      .video-inner {
+        max-width: 100%;
+        padding: 0 16px;
+      }
+
+      /* Single column product grid */
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 420px;
+      }
+
+      .featured-products {
+        padding: 80px 24px 60px;
+      }
+    }
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       1. HERO SECTION
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <h1 class="hero-wordmark">MAISON</h1>
+    <p class="hero-subtitle">Curated with intention.</p>
+
+    <!-- Scroll indicator: vertical line + animated dot -->
+    <div class="scroll-indicator">
+      <span class="scroll-label">Scroll</span>
+      <div class="scroll-line-wrap">
+        <span class="scroll-dot"></span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       2. VIDEO SCRUB SECTION
+       This outer wrapper (250vh tall) provides the scroll distance.
+       The inner .video-sticky-container is pinned to the viewport
+       by GSAP ScrollTrigger while the user scrolls through it.
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="video-scrub-section">
+
+    <!-- This element stays pinned (fixed) while scrolling through the 250vh above -->
+    <div class="video-sticky-container">
+      <div class="video-inner">
+
+        <!--
+          VIDEO: replace "maison-box.mp4" with your file path if needed.
+          Do NOT add `autoplay` — playback is 100% controlled by scroll position.
+          `preload="auto"` ensures frames are available before the user scrolls.
+        -->
+        <video
+          class="scrub-video"
+          src="maison-box.mp4"
+          muted
+          playsinline
+          preload="auto"
+          tabindex="-1"
+        ></video>
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       3. DIVIDER
+       ═══════════════════════════════════════════════════════════ -->
+  <div class="section-divider"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       4. FEATURED PRODUCTS SECTION
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="featured-products">
+
+    <div class="featured-heading-wrap">
+      <span class="featured-eyebrow">The Collection</span>
+      <h2 class="featured-heading">Featured Products</h2>
+    </div>
+
+    <div class="product-grid">
+
+      <!-- Product 1 -->
+      <div class="product-card">
+        <div class="product-image"></div>
+        <p class="product-name">Amber Candle</p>
+        <p class="product-price">R 480</p>
+        <button class="product-btn">Add to Box</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product-card">
+        <div class="product-image"></div>
+        <p class="product-name">Linen Hand Towel</p>
+        <p class="product-price">R 320</p>
+        <button class="product-btn">Add to Box</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product-card">
+        <div class="product-image"></div>
+        <p class="product-name">Artisan Soap Set</p>
+        <p class="product-price">R 260</p>
+        <button class="product-btn">Add to Box</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SCRIPTS — GSAP ScrollTrigger setup
+       ═══════════════════════════════════════════════════════════ -->
+  <script>
+    // Register the ScrollTrigger plugin with GSAP
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ─── HERO ENTRANCE ANIMATION ──────────────────────────────────────
+    // Wordmark and subtitle fade + rise in on page load
+    gsap.from('.hero-wordmark', {
+      duration: 1.6,
+      y: 28,
+      opacity: 0,
+      ease: 'power3.out',
+      delay: 0.2
+    });
+
+    gsap.from('.hero-subtitle', {
+      duration: 1.4,
+      y: 18,
+      opacity: 0,
+      ease: 'power3.out',
+      delay: 0.6
+    });
+
+    gsap.from('.scroll-indicator', {
+      duration: 1.2,
+      opacity: 0,
+      ease: 'power2.out',
+      delay: 1.4
+    });
+
+
+    // ─── VIDEO SCRUB SETUP ────────────────────────────────────────────
+    /*
+     * Core mechanic:
+     *  1. We wait for the video's metadata to load so we know its duration.
+     *  2. ScrollTrigger pins .video-sticky-container on screen for the full
+     *     250vh scroll distance of .video-scrub-section.
+     *  3. onUpdate fires continuously during scroll — self.progress (0→1)
+     *     maps directly to video.currentTime (0→duration).
+     *  4. scrub: 1.5 adds a 1.5s lag so the video never feels jerky.
+     *  5. A parallel gsap.to tweens the video's opacity from 0.6 → 1.0
+     *     as the scrub section enters, giving a luxurious fade-in.
+     */
+    const video = document.querySelector('.scrub-video');
+
+    // Defensive guard: if the browser can't find/load the video, skip gracefully
+    if (video) {
+
+      const initScrub = () => {
+        const duration = video.duration;
+        if (!duration || isNaN(duration)) return; // safety check
+
+        // ── PIN + SCRUB trigger ────────────────────────────────────────
+        /*
+         * trigger:  the tall 250vh wrapper — defines the scroll range
+         * start:    when the top of the wrapper hits the top of the viewport
+         * end:      when the bottom of the wrapper hits the bottom of the viewport
+         * pin:      the sticky inner container is what we visually "hold" on screen
+         * scrub:    1.5s smoothing lag for a luxurious pace
+         * onUpdate: maps scroll progress → video currentTime
+         */
+        ScrollTrigger.create({
+          trigger: '.video-scrub-section',
+          start: 'top top',
+          end: 'bottom bottom',
+          pin: '.video-sticky-container',
+          scrub: 1.5,
+          onUpdate: (self) => {
+            // Clamp to avoid floating point overshooting at 100%
+            video.currentTime = Math.min(self.progress * duration, duration);
+          }
+        });
+
+        // ── OPACITY FADE-IN ───────────────────────────────────────────
+        /*
+         * Separate ScrollTrigger on the same section to fade the video
+         * from 0.6 → 1.0 as it enters. Uses gsap.to so opacity is driven
+         * by scroll (scrub: true = tied 1:1 to progress, faster than scrub).
+         */
+        gsap.to('.scrub-video', {
+          opacity: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.video-scrub-section',
+            start: 'top 80%',   // begin fade when section top is 80% down the viewport
+            end:   'top 20%',   // fully opaque when section top is 20% from viewport top
+            scrub: true
+          }
+        });
+      };
+
+      // If metadata is already loaded (cached video), run immediately
+      if (video.readyState >= 1) {
+        initScrub();
+      } else {
+        video.addEventListener('loadedmetadata', initScrub, { once: true });
+      }
+
+      // Pause immediately — absolutely no freeplay allowed
+      video.pause();
+      video.addEventListener('play', () => {
+        // Belt-and-suspenders: if the browser ever auto-plays, pause again
+        if (!window._scrubActive) video.pause();
+      });
+    }
+
+
+    // ─── PRODUCT CARDS ENTRANCE ───────────────────────────────────────
+    /*
+     * Each product card fades up when it scrolls into view.
+     * stagger gives a cascading left-to-right reveal.
+     */
+    gsap.from('.product-card', {
+      y: 40,
+      opacity: 0,
+      duration: 1.0,
+      stagger: 0.18,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.product-grid',
+        start: 'top 85%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+    // Featured heading fade-up
+    gsap.from('.featured-heading-wrap', {
+      y: 30,
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.featured-heading-wrap',
+        start: 'top 88%',
+        toggleActions: 'play none none none'
+      }
+    });
+
+  </script>
+
+</body>
+</html>

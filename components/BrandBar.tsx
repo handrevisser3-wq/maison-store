@@ -18,7 +18,25 @@ const Item = ({ icon, text }: { icon: string; text: string }) => (
   </span>
 );
 
-export default function BrandBar() {
+export default function BrandBar({ sidebar = false }: { sidebar?: boolean }) {
+
+  // ── Sidebar mode: vertical stack, no dark background, dark text ──
+  if (sidebar) {
+    return (
+      <div className="flex flex-col gap-6">
+        {items.map(({ icon, text }, i) => (
+          <div key={i} className="flex items-center gap-3">
+            <span className="text-base">{icon}</span>
+            <span className="text-[10px] tracking-[0.2em] uppercase text-charcoal/60">
+              {text}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // ── Original full-width bar mode ──
   // Duplicate items so the marquee loop is seamless (translate -50% lands on the duplicate)
   const doubled = [...items, ...items];
 

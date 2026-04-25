@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const footerLinks: Record<string, { label: string; href: string }[]> = {
+const footerLinks: Record<string, { label: string; href: string; external?: boolean }[]> = {
   Shop: [
     { label: "All Products", href: "/shop" },
     { label: "Textiles", href: "/shop?category=Textiles" },
@@ -15,7 +15,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Contact Us", href: "/contact" },
     { label: "FAQs", href: "/contact#faq" },
     { label: "Shipping Info", href: "/contact#shipping" },
-    { label: "Track Your Order", href: "/contact#track" },
+    { label: "Track Your Order", href: "https://aramex.co.za/tracking/TrackShipment.php", external: true },
   ],
   Company: [
     { label: "Our Story", href: "/about" },
@@ -55,12 +55,23 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-cream/60 hover:text-gold transition-colors duration-300"
-                    >
-                      {link.label}
-                    </Link>
+                    {link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-cream/60 hover:text-gold transition-colors duration-300"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-cream/60 hover:text-gold transition-colors duration-300"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>
