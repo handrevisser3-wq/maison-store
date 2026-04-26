@@ -162,7 +162,7 @@ export default function VideoScrub() {
         {/* VIDEO — full-bleed, fills entire viewport */}
         <video
           ref={videoRef}
-          src="/videos/maison-box-h264.mp4"
+          src="/maison-box.mp4"
           muted
           playsInline
           preload="auto"
