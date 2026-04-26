@@ -134,36 +134,41 @@ export default function VideoScrub() {
   }, []);
 
   return (
-    /*
-     * Section height = 120vh — section spans just 20vh beyond one viewport,
-     * so the full video duration is covered in ~20vh of actual scroll travel.
-     * Much faster than the original 250vh.
-     */
     <section
       ref={sectionRef}
-      className="relative bg-[#EDE8E1]"
-      style={{ height: "350vh" }}
+      className="bg-[#EDE8E1]"
+      style={{ height: "350vh", position: "relative" }}
     >
-      {/* VIDEO STICKY CONTAINER */}
+      {/* Sticky container — holds video in place while section scrolls */}
       <div
         ref={stickyRef}
-        className="sticky top-0 h-screen overflow-hidden bg-[#EDE8E1]"
-        style={{ willChange: "transform" }}
+        style={{
+          position: "sticky",
+          top: 0,
+          height: "100vh",
+          width: "100%",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          backgroundColor: "#EDE8E1",
+        }}
       >
-        {/* VIDEO — full-bleed, fills entire viewport */}
+        {/* THE VIDEO */}
         <video
           ref={videoRef}
           src="/maison-box.mp4"
           muted
           playsInline
           preload="auto"
-          controls={false}
-          disablePictureInPicture
-          className="absolute inset-0 w-full h-full object-cover block"
           style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
             opacity: 0.6,
-            willChange: "transform, opacity",
-            transform: "translate3d(0,0,0)",
           }}
         />
 
