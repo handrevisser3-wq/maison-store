@@ -168,7 +168,7 @@ export default function VideoScrub() {
             left: "50%",
             transform: "translateX(-50%)",
             width: "100%",
-            height: "72%",
+            height: "78%",
             objectFit: "cover",
             objectPosition: "center top",
             display: "block",
@@ -179,7 +179,8 @@ export default function VideoScrub() {
         {/* Gold hairline separator between text zone and box zone */}
         <div style={{
           position: "absolute",
-          bottom: "62%",
+          bottom: "auto",
+          top: "40%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "40px",
@@ -197,14 +198,14 @@ export default function VideoScrub() {
             top: 0,
             left: 0,
             width: "100%",
-            height: "38%",
+            height: "42%",
             zIndex: 20,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
             textAlign: "center",
-            paddingTop: "12px",
+            paddingTop: "28px",
             paddingLeft: "6vw",
             paddingRight: "6vw",
             pointerEvents: "none",
@@ -232,11 +233,12 @@ export default function VideoScrub() {
                 Live Proudly South African.
               </span>
             </h1>
-            <p className="hero-subheading leading-relaxed mb-10"
+            <p className="hero-subheading leading-relaxed"
               style={{
                 fontSize: "clamp(0.75rem, 0.95vw, 0.9rem)",
                 maxWidth: "520px",
-                margin: "0 auto 2.5rem",
+                margin: "0 auto",
+                marginBottom: "16px",
                 color: "#5C4F43",
                 opacity: 0.85,
               }}
@@ -244,7 +246,7 @@ export default function VideoScrub() {
               Discover home décor and lifestyle pieces thoughtfully selected
               for the modern South African home.
             </p>
-            <div className="hero-cta flex flex-row gap-4 justify-center" style={{ pointerEvents: "auto" }}>
+            <div className="hero-cta flex flex-row gap-4 justify-center" style={{ pointerEvents: "auto", marginTop: "12px", marginBottom: "0px" }}>
               <Link href="/shop">
                 <Button className="bg-gold hover:bg-gold/90 text-charcoal font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto">
                   Explore the Collection
