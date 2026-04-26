@@ -27,6 +27,12 @@ export default function VideoScrub() {
     const video   = videoRef.current;
     if (!section || !video) return;
 
+    // Force video visible immediately — prevents blank on mobile
+    // while waiting for loadedmetadata to fire
+    video.style.opacity = "1";
+    video.style.visibility = "visible";
+    video.style.display = "block";
+
     // ── RAF lerp loop ──────────────────────────────────────────────────
     // Runs every animation frame. Smoothly chases the target currentTime
     // set by the ScrollTrigger onUpdate, eliminating seek jitter.
@@ -136,12 +142,13 @@ export default function VideoScrub() {
   return (
     <section
       ref={sectionRef}
-      className="bg-[#EDE8E1]"
+      className="hero-scroll-section bg-[#EDE8E1]"
       style={{ height: "350vh", position: "relative" }}
     >
       {/* Sticky container — holds video in place while section scrolls */}
       <div
         ref={stickyRef}
+        className="hero-sticky-container"
         style={{
           position: "sticky",
           top: 0,
@@ -188,6 +195,7 @@ export default function VideoScrub() {
 
         {/* Cream edge-fade overlay — reinforces video mask for seamless blend */}
         <div
+          className="hero-cream-overlay"
           style={{
             position: "absolute",
             inset: 0,
@@ -204,7 +212,7 @@ export default function VideoScrub() {
         />
 
         {/* Gold hairline separator between text and box */}
-        <div style={{
+        <div className="hero-gold-hairline" style={{
           position: "absolute",
           top: "44%",
           left: "50%",
@@ -218,7 +226,7 @@ export default function VideoScrub() {
 
         {/* HERO TEXT OVERLAY — floats over top of full-screen video */}
         <div
-          className="hero-text-scroll-overlay"
+          className="hero-text-scroll-overlay hero-text-zone"
           style={{
             position: "absolute",
             top: 0,
@@ -275,7 +283,7 @@ export default function VideoScrub() {
               Discover home décor and lifestyle pieces thoughtfully selected
               for the modern South African home.
             </p>
-            <div className="hero-cta" style={{ pointerEvents: "auto", marginTop: "4px", display: "flex", flexDirection: "row", gap: "16px" }}>
+            <div className="hero-cta hero-buttons-wrapper" style={{ pointerEvents: "auto", marginTop: "4px", display: "flex", flexDirection: "row", gap: "16px" }}>
               <Link href="/shop">
                 <Button className="bg-gold hover:bg-gold/90 text-charcoal font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto">
                   Explore the Collection
