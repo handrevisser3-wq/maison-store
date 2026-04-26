@@ -173,6 +173,33 @@ export default function VideoScrub() {
             objectPosition: "center center",
             display: "block",
             zIndex: 1,
+            WebkitMaskImage: `radial-gradient(
+              ellipse 85% 90% at 50% 55%,
+              black 55%,
+              transparent 100%
+            )`,
+            maskImage: `radial-gradient(
+              ellipse 85% 90% at 50% 55%,
+              black 55%,
+              transparent 100%
+            )`,
+          }}
+        />
+
+        {/* Cream edge-fade overlay — reinforces video mask for seamless blend */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 2,
+            pointerEvents: "none",
+            background: `radial-gradient(
+              ellipse 90% 92% at 50% 54%,
+              transparent 50%,
+              rgba(237, 232, 225, 0.4) 75%,
+              rgba(237, 232, 225, 0.85) 90%,
+              rgba(237, 232, 225, 1) 100%
+            )`,
           }}
         />
 
