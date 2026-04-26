@@ -51,6 +51,9 @@ export default function VideoScrub() {
     const init = () => {
       const dur = video.duration;
       if (!dur || isNaN(dur)) return;
+      // Guard against double-init (loadedmetadata + loadeddata both firing)
+      if (video.dataset.scrubInit === "true") return;
+      video.dataset.scrubInit = "true";
       durationRef.current = dur;
 
       // Start the lerp loop
@@ -103,16 +106,40 @@ export default function VideoScrub() {
 
     video.pause();
 
+    // Run immediately if already cached/loaded
     if (video.readyState >= 1) {
       init();
-    } else {
-      video.addEventListener("loadedmetadata", init, { once: true });
     }
+
+    // loadedmetadata — primary event
+    video.addEventListener("loadedmetadata", init);
+    // loadeddata — fires later, more reliable on Android/mobile
+    video.addEventListener("loadeddata", init);
+
+    // Last-resort fallback: some mobile browsers never fire either event
+    // even though the video is ready. Force a reload then retry.
+    const fallbackTimer = setTimeout(() => {
+      if (video.dataset.scrubInit !== "true") {
+        video.load();
+        setTimeout(init, 500);
+      }
+    }, 2000);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
+      video.removeEventListener("loadedmetadata", init);
+      video.removeEventListener("loadeddata", init);
+      clearTimeout(fallbackTimer);
       triggers.forEach((t) => t.kill());
     };
+  }, []);
+
+  // Separate effect: force video load on mount.
+  // Mobile browsers with data-saving or Low Power Mode ignore preload="auto".
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
   }, []);
 
   return (
@@ -135,10 +162,12 @@ export default function VideoScrub() {
         {/* VIDEO — full-bleed, fills entire viewport */}
         <video
           ref={videoRef}
-          src="/maison-box.mp4"
+          src="/videos/maison-box-h264.mp4"
           muted
           playsInline
           preload="auto"
+          controls={false}
+          disablePictureInPicture
           className="absolute inset-0 w-full h-full object-cover block"
           style={{
             opacity: 0.6,
