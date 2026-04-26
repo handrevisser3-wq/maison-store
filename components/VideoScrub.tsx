@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -20,19 +20,7 @@ export default function VideoScrub() {
   const rafRef         = useRef<number>(0);
   const durationRef    = useRef(0);
 
-  // Mobile detection — static image replaces video below 768px
-  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    // Skip scroll animation entirely on mobile — static image is shown instead
-    if (typeof window !== "undefined" && window.innerWidth < 768) return;
-
     gsap.registerPlugin(ScrollTrigger);
 
     const section = sectionRef.current;
@@ -173,68 +161,37 @@ export default function VideoScrub() {
           backgroundColor: "#EDE8E1",
         }}
       >
-        {/* MOBILE: static image — DESKTOP: scroll-driven video */}
-        {isMobile ? (
-          <img
-            src="/images/box-poster.png"
-            alt="MAISON curated gift box"
-            className="hero-video-element"
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              objectPosition: "center 65%",
-              display: "block",
-              WebkitMaskImage: `radial-gradient(
-                ellipse 95% 88% at 50% 58%,
-                black 45%,
-                rgba(0,0,0,0.5) 72%,
-                transparent 100%
-              )`,
-              maskImage: `radial-gradient(
-                ellipse 95% 88% at 50% 58%,
-                black 45%,
-                rgba(0,0,0,0.5) 72%,
-                transparent 100%
-              )`,
-            }}
-          />
-        ) : (
-          /* DESKTOP: scroll-driven video — styles unchanged */
-          <video
-            ref={videoRef}
-            src="/maison-box.mp4"
-            muted
-            playsInline
-            preload="auto"
-            className="hero-video-element"
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "50%",
-              transform: "translateY(-50%) translateX(-50%)",
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              objectPosition: "center center",
-              display: "block",
-              zIndex: 1,
-              WebkitMaskImage: `radial-gradient(
-                ellipse 85% 90% at 50% 55%,
-                black 55%,
-                transparent 100%
-              )`,
-              maskImage: `radial-gradient(
-                ellipse 85% 90% at 50% 55%,
-                black 55%,
-                transparent 100%
-              )`,
-            }}
-          />
-        )}
+        {/* VIDEO — full screen, contain so box is never cropped */}
+        <video
+          ref={videoRef}
+          src="/maison-box.mp4"
+          muted
+          playsInline
+          preload="auto"
+          className="hero-video-element"
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translateY(-50%) translateX(-50%)",
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            objectPosition: "center center",
+            display: "block",
+            zIndex: 1,
+            WebkitMaskImage: `radial-gradient(
+              ellipse 85% 90% at 50% 55%,
+              black 55%,
+              transparent 100%
+            )`,
+            maskImage: `radial-gradient(
+              ellipse 85% 90% at 50% 55%,
+              black 55%,
+              transparent 100%
+            )`,
+          }}
+        />
 
         {/* Cream edge-fade overlay — reinforces video mask for seamless blend */}
         <div
