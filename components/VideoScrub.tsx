@@ -117,11 +117,10 @@ export default function VideoScrub() {
     video.addEventListener("loadeddata", init);
 
     // Last-resort fallback: some mobile browsers never fire either event
-    // even though the video is ready. Force a reload then retry.
+    // even though the video is ready. Try init directly after 2s.
     const fallbackTimer = setTimeout(() => {
       if (video.dataset.scrubInit !== "true") {
-        video.load();
-        setTimeout(init, 500);
+        init();
       }
     }, 2000);
 
@@ -132,14 +131,6 @@ export default function VideoScrub() {
       clearTimeout(fallbackTimer);
       triggers.forEach((t) => t.kill());
     };
-  }, []);
-
-  // Separate effect: force video load on mount.
-  // Mobile browsers with data-saving or Low Power Mode ignore preload="auto".
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-    }
   }, []);
 
   return (
