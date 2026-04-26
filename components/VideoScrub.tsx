@@ -174,6 +174,7 @@ export default function VideoScrub() {
           autoPlay
           playsInline
           preload="auto"
+          controls={false}
           className="hero-video-element"
           style={{
             position: "absolute",
