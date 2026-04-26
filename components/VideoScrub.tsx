@@ -154,52 +154,111 @@ export default function VideoScrub() {
           backgroundColor: "#EDE8E1",
         }}
       >
-        {/* THE VIDEO */}
+        {/* VIDEO — bottom 72% of screen, box sits below text zone */}
         <video
           ref={videoRef}
           src="/maison-box.mp4"
           muted
           playsInline
           preload="auto"
+          className="hero-video-element"
           style={{
             position: "absolute",
-            inset: 0,
+            bottom: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
             width: "100%",
-            height: "100%",
+            height: "72%",
             objectFit: "cover",
+            objectPosition: "center top",
             display: "block",
-            opacity: 0.6,
+            opacity: 0.9,
           }}
         />
 
-        {/* HERO TEXT OVERLAY — upper center */}
-        <div className="hero-text-scroll-overlay absolute top-[3%] md:top-[6%] left-1/2 -translate-x-1/2 w-[95%] md:w-[90%] max-w-[860px] z-30 flex flex-col items-center text-center pointer-events-none scale-[0.58] md:scale-[0.78] origin-top">
-          <p className="hero-label text-xs tracking-[0.5em] uppercase text-[#2C2520]/60 mb-10">
-            Curated in Cape Town
-          </p>
-          <h1 className="hero-headline font-serif text-5xl sm:text-7xl lg:text-8xl text-[#2C2520] leading-[1.05] mb-8">
-            Live Beautifully.
-            <br />
-            <span className="italic text-gold">Live Proudly South African.</span>
-          </h1>
-          <p className="hero-subheading text-base sm:text-lg text-[#2C2520]/75 max-w-xl mb-14 leading-relaxed">
-            Discover home décor and lifestyle pieces thoughtfully selected
-            for the modern South African home.
-          </p>
-          <div className="hero-cta pointer-events-auto flex flex-row gap-4 mt-2">
-            <Link href="/shop">
-              <Button className="bg-gold hover:bg-gold/90 text-charcoal font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto">
-                Explore the Collection
-              </Button>
-            </Link>
-            <Link href="/about">
-              <Button
-                variant="outline"
-                className="border-[#2C2520] text-[#2C2520] hover:bg-[#2C2520]/10 hover:border-[#2C2520] font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none bg-transparent transition-all duration-300 w-full sm:w-auto"
-              >
-                Our Story
-              </Button>
-            </Link>
+        {/* Gold hairline separator between text zone and box zone */}
+        <div style={{
+          position: "absolute",
+          bottom: "62%",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "40px",
+          height: "1px",
+          backgroundColor: "#C4A882",
+          zIndex: 15,
+          opacity: 0.6,
+        }} />
+
+        {/* HERO TEXT OVERLAY — top 38% zone, fully above the box */}
+        <div
+          className="hero-text-scroll-overlay hero-text-zone"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "38%",
+            zIndex: 20,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
+            paddingTop: "12px",
+            paddingLeft: "6vw",
+            paddingRight: "6vw",
+            pointerEvents: "none",
+            background: "transparent",
+          }}
+        >
+          {/* Inner content — scaled down to fit zone */}
+          <div
+            className="hero-text-content"
+            style={{
+              transform: "scale(0.82)",
+              transformOrigin: "center top",
+              width: "100%",
+            }}
+          >
+            <p className="hero-label text-xs tracking-[0.5em] uppercase mb-10" style={{ color: "#8C7B6E" }}>
+              Curated in Cape Town
+            </p>
+            <h1 className="hero-headline font-serif leading-[1.05] mb-8"
+              style={{ fontSize: "clamp(1.8rem, 3.2vw, 3.4rem)", color: "#1C1712" }}
+            >
+              Live Beautifully.
+              <br />
+              <span className="italic text-gold" style={{ fontSize: "clamp(1.6rem, 2.8vw, 3rem)" }}>
+                Live Proudly South African.
+              </span>
+            </h1>
+            <p className="hero-subheading leading-relaxed mb-10"
+              style={{
+                fontSize: "clamp(0.75rem, 0.95vw, 0.9rem)",
+                maxWidth: "520px",
+                margin: "0 auto 2.5rem",
+                color: "#5C4F43",
+                opacity: 0.85,
+              }}
+            >
+              Discover home décor and lifestyle pieces thoughtfully selected
+              for the modern South African home.
+            </p>
+            <div className="hero-cta flex flex-row gap-4 justify-center" style={{ pointerEvents: "auto" }}>
+              <Link href="/shop">
+                <Button className="bg-gold hover:bg-gold/90 text-charcoal font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto">
+                  Explore the Collection
+                </Button>
+              </Link>
+              <Link href="/about">
+                <Button
+                  variant="outline"
+                  className="border-[#2C2520] text-[#2C2520] hover:bg-[#2C2520]/10 hover:border-[#2C2520] font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none bg-transparent transition-all duration-300 w-full sm:w-auto"
+                >
+                  Our Story
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

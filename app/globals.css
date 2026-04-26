@@ -168,3 +168,18 @@
     padding: 60px 24px;
   }
 }
+
+/* ── Hero two-zone layout — mobile overrides ─────────────── */
+@media (max-width: 768px) {
+  .hero-text-zone {
+    height: 45% !important;
+    padding-top: 8px !important;
+  }
+  .hero-text-content {
+    transform: scale(0.68) !important;
+    transform-origin: center top !important;
+  }
+  .hero-video-element {
+    height: 62% !important;
+  }
+}
