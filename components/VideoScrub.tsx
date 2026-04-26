@@ -27,6 +27,11 @@ export default function VideoScrub() {
     const video   = videoRef.current;
     if (!section || !video) return;
 
+    // autoPlay forces mobile to load the video — pause immediately
+    // so scroll takes over from frame 0
+    video.pause();
+    video.currentTime = 0;
+
     // Force video visible immediately — prevents blank on mobile
     // while waiting for loadedmetadata to fire
     video.style.opacity = "1";
@@ -110,10 +115,8 @@ export default function VideoScrub() {
       triggers.push(textFade);
     };
 
-    video.pause();
-
-    // Run immediately if already cached/loaded
-    if (video.readyState >= 1) {
+    // Run immediately if autoPlay already loaded it
+    if (video.readyState >= 2) {
       init();
     }
 
@@ -121,19 +124,21 @@ export default function VideoScrub() {
     video.addEventListener("loadedmetadata", init);
     // loadeddata — fires later, more reliable on Android/mobile
     video.addEventListener("loadeddata", init);
+    // canplay — fires on mobile even when loadedmetadata doesn't
+    video.addEventListener("canplay", init);
 
-    // Last-resort fallback: some mobile browsers never fire either event
-    // even though the video is ready. Try init directly after 2s.
+    // Last-resort fallback: reduced to 1.5s since autoPlay loads faster
     const fallbackTimer = setTimeout(() => {
       if (video.dataset.scrubInit !== "true") {
         init();
       }
-    }, 2000);
+    }, 1500);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
       video.removeEventListener("loadedmetadata", init);
       video.removeEventListener("loadeddata", init);
+      video.removeEventListener("canplay", init);
       clearTimeout(fallbackTimer);
       triggers.forEach((t) => t.kill());
     };
@@ -166,6 +171,7 @@ export default function VideoScrub() {
           ref={videoRef}
           src="/maison-box.mp4"
           muted
+          autoPlay
           playsInline
           preload="auto"
           className="hero-video-element"
