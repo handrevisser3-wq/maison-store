@@ -154,7 +154,7 @@ export default function VideoScrub() {
           backgroundColor: "#EDE8E1",
         }}
       >
-        {/* VIDEO — bottom 72% of screen, box sits below text zone */}
+        {/* VIDEO — full screen, contain so box is never cropped */}
         <video
           ref={videoRef}
           src="/maison-box.mp4"
@@ -164,67 +164,69 @@ export default function VideoScrub() {
           className="hero-video-element"
           style={{
             position: "absolute",
-            bottom: 0,
+            top: "50%",
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateY(-50%) translateX(-50%)",
             width: "100%",
-            height: "78%",
-            objectFit: "cover",
-            objectPosition: "center top",
+            height: "100%",
+            objectFit: "contain",
+            objectPosition: "center center",
             display: "block",
-            opacity: 0.9,
+            zIndex: 1,
           }}
         />
 
-        {/* Gold hairline separator between text zone and box zone */}
+        {/* Gold hairline separator between text and box */}
         <div style={{
           position: "absolute",
-          bottom: "auto",
-          top: "40%",
+          top: "44%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "40px",
           height: "1px",
           backgroundColor: "#C4A882",
           zIndex: 15,
-          opacity: 0.6,
+          opacity: 0.5,
         }} />
 
-        {/* HERO TEXT OVERLAY — top 38% zone, fully above the box */}
+        {/* HERO TEXT OVERLAY — floats over top of full-screen video */}
         <div
-          className="hero-text-scroll-overlay hero-text-zone"
+          className="hero-text-scroll-overlay"
           style={{
             position: "absolute",
             top: 0,
             left: 0,
             width: "100%",
-            height: "42%",
+            height: "100%",
             zIndex: 20,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "flex-start",
-            textAlign: "center",
-            paddingTop: "28px",
+            paddingTop: "40px",
             paddingLeft: "6vw",
             paddingRight: "6vw",
+            textAlign: "center",
             pointerEvents: "none",
-            background: "transparent",
           }}
         >
-          {/* Inner content — scaled down to fit zone */}
+          {/* Inner content */}
           <div
             className="hero-text-content"
             style={{
               transform: "scale(0.82)",
               transformOrigin: "center top",
               width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: "8px",
             }}
           >
-            <p className="hero-label text-xs tracking-[0.5em] uppercase mb-10" style={{ color: "#8C7B6E" }}>
+            <p className="hero-label text-xs tracking-[0.5em] uppercase" style={{ color: "#8C7B6E" }}>
               Curated in Cape Town
             </p>
-            <h1 className="hero-headline font-serif leading-[1.05] mb-8"
+            <h1 className="hero-headline font-serif leading-[1.05]"
               style={{ fontSize: "clamp(1.8rem, 3.2vw, 3.4rem)", color: "#1C1712" }}
             >
               Live Beautifully.
@@ -237,8 +239,8 @@ export default function VideoScrub() {
               style={{
                 fontSize: "clamp(0.75rem, 0.95vw, 0.9rem)",
                 maxWidth: "520px",
-                margin: "0 auto",
-                marginBottom: "16px",
+                marginTop: "8px",
+                marginBottom: "20px",
                 color: "#5C4F43",
                 opacity: 0.85,
               }}
@@ -246,7 +248,7 @@ export default function VideoScrub() {
               Discover home décor and lifestyle pieces thoughtfully selected
               for the modern South African home.
             </p>
-            <div className="hero-cta flex flex-row gap-4 justify-center" style={{ pointerEvents: "auto", marginTop: "12px", marginBottom: "0px" }}>
+            <div className="hero-cta" style={{ pointerEvents: "auto", marginTop: "4px", display: "flex", flexDirection: "row", gap: "16px" }}>
               <Link href="/shop">
                 <Button className="bg-gold hover:bg-gold/90 text-charcoal font-sans font-medium text-xs tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto">
                   Explore the Collection
