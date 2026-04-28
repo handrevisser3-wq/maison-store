@@ -27,13 +27,10 @@ export default function Header() {
           src="/images/leopard.svg"
           alt=""
           className="leopard-walking"
-          width={120}
-          height={50}
-          style={{ objectFit: "contain", display: "block" }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: "relative", zIndex: 1 }}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: "relative", zIndex: 2 }}>
         <div className="flex items-center justify-between h-16 md:h-20">
 
           {/* Logo */}

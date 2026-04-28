@@ -1,103 +1,97 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 210" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 200" fill="none">
 
-  <!-- TAIL: thick stroke curving up-left -->
-  <path d="M 105 112 C 80 98 58 76 42 50 C 30 30 22 14 14 5"
-        stroke="#C9A830" stroke-width="17" stroke-linecap="round"/>
-  <!-- Tail tip (black) -->
-  <ellipse cx="11" cy="4" rx="13" ry="10" fill="#111" transform="rotate(-35 11 4)"/>
+  <!-- TAIL: curves up-left from haunches -->
+  <path d="M 110 122 C 84 107 60 82 42 54 C 30 34 21 17 15 7"
+        stroke="#C9A830" stroke-width="14" stroke-linecap="round"/>
+  <ellipse cx="13" cy="5" rx="11" ry="9" fill="#1a1a1a" transform="rotate(-40 13 5)"/>
 
-  <!-- MAIN BODY -->
-  <path d="M 100 118
-           C 108 83 148 62 218 59
-           C 290 56 358 66 393 84
-           C 412 94 409 114 394 120
-           C 361 133 288 138 218 138
-           C 152 138 107 133 100 118 Z"
+  <!-- BODY: single closed path — tapers into neck, no separate neck piece -->
+  <path d="M 110 122
+           C 112 96 138 70 195 62
+           C 252 54 320 58 382 67
+           C 415 72 438 84 446 97
+           C 451 108 447 120 432 125
+           C 405 131 330 135 240 135
+           C 162 135 110 133 110 122 Z"
         fill="#C9A830"/>
 
-  <!-- BELLY lighter underside -->
-  <path d="M 135 136 C 220 150 346 141 389 124
-           C 380 144 290 154 220 153
-           C 164 153 138 148 135 136 Z"
-        fill="#DFC058"/>
+  <!-- BELLY lighter -->
+  <path d="M 148 133 C 240 147 358 140 427 126
+           C 417 144 320 153 240 152
+           C 170 152 148 146 148 133 Z"
+        fill="#E8D060"/>
 
-  <!-- NECK bridge -->
-  <path d="M 389 89 C 412 72 436 66 447 69
-           C 458 73 455 91 449 101
-           C 440 112 416 117 394 112 Z"
-        fill="#C9A830"/>
+  <!-- HEAD: round circle, overlaps body right end seamlessly -->
+  <circle cx="462" cy="91" r="29" fill="#C9A830"/>
 
-  <!-- HEAD -->
-  <circle cx="464" cy="83" r="32" fill="#C9A830"/>
-
-  <!-- MUZZLE -->
-  <ellipse cx="484" cy="95" rx="19" ry="16" fill="#DFC058"/>
+  <!-- MUZZLE: subtle lighter oval -->
+  <ellipse cx="479" cy="100" rx="16" ry="13" fill="#E8D060"/>
 
   <!-- EYE -->
-  <ellipse cx="468" cy="76" rx="7" ry="6" fill="white"/>
-  <ellipse cx="468" cy="77" rx="4" ry="5" fill="#111"/>
-  <circle cx="470" cy="74" r="1.5" fill="white"/>
+  <ellipse cx="466" cy="83" rx="6.5" ry="6" fill="white"/>
+  <ellipse cx="466" cy="84" rx="3.5" ry="4.5" fill="#1a1a1a"/>
+  <circle cx="468" cy="81" r="1.5" fill="white"/>
 
   <!-- NOSE -->
-  <ellipse cx="487" cy="92" rx="4" ry="3" fill="#111"/>
+  <ellipse cx="481" cy="97" rx="3.5" ry="2.5" fill="#1a1a1a"/>
 
-  <!-- WHISKER dots -->
-  <circle cx="478" cy="98" r="2" fill="#333"/>
-  <circle cx="472" cy="100" r="2" fill="#333"/>
-  <circle cx="477" cy="103" r="2" fill="#333"/>
+  <!-- MOUTH -->
+  <path d="M 481 100 C 479 104 476 105 474 104" stroke="#7a5010" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 481 100 C 483 104 486 104 488 103" stroke="#7a5010" stroke-width="1.5" stroke-linecap="round"/>
 
   <!-- EAR -->
-  <path d="M 440 53 L 448 36 L 460 53 Z" fill="#C9A830"/>
-  <path d="M 443 51 L 449 40 L 458 51 Z" fill="#111"/>
+  <path d="M 439 62 L 447 44 L 458 62 Z" fill="#C9A830"/>
+  <path d="M 442 60 L 448 47 L 456 60 Z" fill="#1a1a1a"/>
+
+  <!-- Whisker dots -->
+  <circle cx="474" cy="105" r="1.8" fill="#555"/>
+  <circle cx="470" cy="107" r="1.8" fill="#555"/>
+  <circle cx="475" cy="109" r="1.8" fill="#555"/>
 
   <!-- REAR LEGS -->
-  <line x1="148" y1="135" x2="140" y2="194" stroke="#C9A830" stroke-width="23" stroke-linecap="round"/>
-  <line x1="174" y1="137" x2="171" y2="196" stroke="#C9A830" stroke-width="20" stroke-linecap="round"/>
-  <!-- Rear paws -->
-  <ellipse cx="139" cy="197" rx="17" ry="8" fill="#C9A830"/>
-  <ellipse cx="170" cy="199" rx="15" ry="7" fill="#C9A830"/>
+  <path d="M 148 133 C 145 152 141 170 137 188" stroke="#C9A830" stroke-width="22" stroke-linecap="round"/>
+  <path d="M 174 134 C 172 153 169 172 167 190" stroke="#C9A830" stroke-width="19" stroke-linecap="round"/>
+  <ellipse cx="136" cy="191" rx="17" ry="7" fill="#C9A830"/>
+  <ellipse cx="166" cy="193" rx="15" ry="6" fill="#C9A830"/>
 
   <!-- FRONT LEGS -->
-  <line x1="336" y1="128" x2="329" y2="192" stroke="#C9A830" stroke-width="23" stroke-linecap="round"/>
-  <line x1="361" y1="123" x2="363" y2="194" stroke="#C9A830" stroke-width="20" stroke-linecap="round"/>
-  <!-- Front paws -->
-  <ellipse cx="328" cy="195" rx="17" ry="8" fill="#C9A830"/>
-  <ellipse cx="362" cy="197" rx="15" ry="7" fill="#C9A830"/>
+  <path d="M 340 129 C 337 148 333 167 329 185" stroke="#C9A830" stroke-width="22" stroke-linecap="round"/>
+  <path d="M 365 124 C 365 143 366 163 366 182" stroke="#C9A830" stroke-width="19" stroke-linecap="round"/>
+  <ellipse cx="328" cy="188" rx="17" ry="7" fill="#C9A830"/>
+  <ellipse cx="365" cy="185" rx="15" ry="6" fill="#C9A830"/>
 
-  <!-- SPOTS row 1 — along spine -->
-  <path d="M 118 83 C 112 72 125 67 128 78" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 152 70 C 146 59 159 54 162 65" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 187 64 C 181 53 194 48 197 59" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 222 61 C 216 50 229 45 232 56" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 257 61 C 251 50 264 45 267 56" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 292 65 C 286 54 299 49 302 60" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 325 73 C 319 62 332 57 335 68" stroke="#111" stroke-width="8" stroke-linecap="round"/>
-  <path d="M 357 82 C 351 71 364 66 367 77" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <!-- SPOTS row 1 — spine -->
+  <path d="M 138 83 C 132 72 144 67 148 77" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 172 72 C 166 61 178 56 182 66" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 207 66 C 201 55 213 50 217 60" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 243 63 C 237 52 249 47 253 57" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 279 64 C 273 53 285 48 289 58" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 314 68 C 308 57 320 52 324 62" stroke="#1a1a1a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 348 75 C 342 64 354 59 358 69" stroke="#1a1a1a" stroke-width="7.5" stroke-linecap="round"/>
+  <path d="M 379 85 C 373 74 385 69 389 79" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
 
-  <!-- SPOTS row 2 — mid body -->
-  <path d="M 133 100 C 127 89 140 84 143 95" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 167 90 C 161 79 174 74 177 85" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 202 85 C 196 74 209 69 212 80" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 237 83 C 231 72 244 67 247 78" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 272 84 C 266 73 279 68 282 79" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 306 88 C 300 77 313 72 316 83" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 337 96 C 331 85 344 80 347 91" stroke="#111" stroke-width="7" stroke-linecap="round"/>
-  <path d="M 366 104 C 360 93 373 88 376 99" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <!-- SPOTS row 2 — mid flank -->
+  <path d="M 152 102 C 146 91 158 86 162 96" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 187 92 C 181 81 193 76 197 86" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 223 87 C 217 76 229 71 233 81" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 259 85 C 253 74 265 69 269 79" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 295 87 C 289 76 301 71 305 81" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 328 92 C 322 81 334 76 338 86" stroke="#1a1a1a" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 360 100 C 354 89 366 84 370 94" stroke="#1a1a1a" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M 390 109 C 384 98 396 93 400 103" stroke="#1a1a1a" stroke-width="6.5" stroke-linecap="round"/>
 
   <!-- SPOTS row 3 — lower flank -->
-  <path d="M 153 117 C 147 106 160 101 163 112" stroke="#111" stroke-width="6" stroke-linecap="round"/>
-  <path d="M 209 113 C 203 102 216 97 219 108" stroke="#111" stroke-width="6" stroke-linecap="round"/>
-  <path d="M 265 112 C 259 101 272 96 275 107" stroke="#111" stroke-width="6" stroke-linecap="round"/>
-  <path d="M 320 113 C 314 102 327 97 330 108" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 162 118 C 156 107 168 102 172 112" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 216 115 C 210 104 222 99 226 109" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 270 114 C 264 103 276 98 280 108" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 323 115 C 317 104 329 99 333 109" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
 
-  <!-- TAIL spots -->
-  <path d="M 79 104 C 73 94 84 91 87 100" stroke="#111" stroke-width="6" stroke-linecap="round"/>
-  <path d="M 56 84 C 51 75 61 72 64 80" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <!-- Tail spots -->
+  <path d="M 87 108 C 81 98 92 95 96 104" stroke="#1a1a1a" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 63 86 C 57 77 67 74 71 83" stroke="#1a1a1a" stroke-width="5" stroke-linecap="round"/>
 
-  <!-- NECK spot -->
-  <path d="M 415 84 C 409 75 420 71 423 80" stroke="#111" stroke-width="6" stroke-linecap="round"/>
-
-  <!-- HEAD spot -->
-  <path d="M 452 76 C 447 68 455 65 457 72" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+  <!-- Neck/head spots -->
+  <path d="M 443 83 C 437 75 447 71 451 79" stroke="#1a1a1a" stroke-width="5.5" stroke-linecap="round"/>
+  <path d="M 471 74 C 466 67 474 63 477 70" stroke="#1a1a1a" stroke-width="4.5" stroke-linecap="round"/>
 
 </svg>

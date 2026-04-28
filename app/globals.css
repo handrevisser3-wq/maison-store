@@ -404,6 +404,7 @@
 
 /* ======== LEOPARD HEADER ANIMATION ======== */
 
+/* flex container — centers leopard vertically without position conflicts */
 .leopard-track {
   position: absolute;
   top: 0;
@@ -413,40 +414,39 @@
   pointer-events: none;
   overflow: hidden;
   z-index: 0;
+  display: flex;
+  align-items: center;
 }
 
 /* All header content siblings stay above the leopard */
 .leopard-track ~ * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 @keyframes leopardWalkAcross {
-  0%   { transform: translateX(-140px) translateY(-50%) scaleX(1); }
-  20%  { transform: translateX(-140px) translateY(calc(-50% - 2px)) scaleX(1); }
-  48%  { transform: translateX(calc(100vw + 140px)) translateY(-50%) scaleX(1); }
-  50%  { transform: translateX(calc(100vw + 140px)) translateY(-50%) scaleX(-1); }
-  70%  { transform: translateX(calc(100vw + 140px)) translateY(calc(-50% - 2px)) scaleX(-1); }
-  98%  { transform: translateX(-140px) translateY(-50%) scaleX(-1); }
-  100% { transform: translateX(-140px) translateY(-50%) scaleX(1); }
+  0%   { transform: translateX(-120px) scaleX(1); }
+  20%  { transform: translateX(-120px) translateY(-1.5px) scaleX(1); }
+  48%  { transform: translateX(calc(100vw + 120px)) scaleX(1); }
+  50%  { transform: translateX(calc(100vw + 120px)) scaleX(-1); }
+  70%  { transform: translateX(calc(100vw + 120px)) translateY(-1.5px) scaleX(-1); }
+  98%  { transform: translateX(-120px) scaleX(-1); }
+  100% { transform: translateX(-120px) scaleX(1); }
 }
 
 .leopard-walking {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 54px;
-  width: auto;
-  animation: leopardWalkAcross 18s linear infinite;
-  transform-origin: center center;
+  flex-shrink: 0;
+  width: 100px;
+  height: auto;
+  animation: leopardWalkAcross 28s linear infinite;
   will-change: transform;
-  opacity: 0.88;
+  opacity: 0.85;
 }
 
 @media (max-width: 768px) {
   .leopard-walking {
-    height: 38px;
-    animation-duration: 14s;
+    width: 72px;
+    animation-duration: 22s;
   }
 }
 
