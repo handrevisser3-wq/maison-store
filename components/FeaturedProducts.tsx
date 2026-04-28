@@ -14,16 +14,16 @@ export default function FeaturedProducts() {
           {featured.map((product) => (
             <BorderGlow
               key={product.id}
-              edgeSensitivity={25}
-              glowColor="38 45 65"
+              edgeSensitivity={15}
+              glowColor="38 60 72"
               backgroundColor="#F5F0EA"
               borderRadius={8}
-              glowRadius={25}
-              glowIntensity={0.8}
-              coneSpread={20}
+              glowRadius={60}
+              glowIntensity={2.5}
+              coneSpread={35}
               animated={false}
-              colors={["#C4A882", "#D4B896", "#8C6D4F"]}
-              fillOpacity={0.2}
+              colors={["#C4A882", "#E8C98A", "#8C6D4F"]}
+              fillOpacity={0.6}
             >
               <ProductCard product={product} />
             </BorderGlow>
