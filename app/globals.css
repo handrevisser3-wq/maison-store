@@ -307,3 +307,86 @@
     ) !important;
   }
 }
+
+/* ============ BORDER GLOW COMPONENT ============ */
+
+.border-glow-card {
+  position: relative;
+  border-radius: var(--border-radius, 8px);
+  background: var(--card-bg, transparent);
+  isolation: isolate;
+  transition: box-shadow 0.25s ease;
+}
+
+/* Box-shadow fallback — always visible on hover across all browsers */
+.border-glow-card:hover {
+  box-shadow:
+    0 0 0 1px rgba(196, 168, 130, 0.35),
+    0 6px 24px -6px rgba(196, 168, 130, 0.3);
+}
+
+/* Conic gradient border — cone centered on cursor direction
+   Formula: from (cursor-angle - cone-spread) so the deg-stop
+   at cone-spread lands exactly at cursor-angle (the peak). */
+.border-glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: calc(var(--border-radius, 8px) + 1px);
+  padding: 1px;
+  background: conic-gradient(
+    from calc(var(--cursor-angle, 0deg) - calc(var(--cone-spread, 25) * 1deg)),
+    transparent                                      0deg,
+    var(--glow-color, hsl(38deg 45% 65%)) calc(var(--cone-spread, 25) * 1deg),
+    transparent                           calc(var(--cone-spread, 25) * 2deg),
+    transparent                                   360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: calc(var(--edge-proximity, 0) / 100);
+  pointer-events: none;
+  transition: opacity 0.12s ease;
+  z-index: 0;
+}
+
+/* Soft fill gradient overlay */
+.edge-light {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--border-radius, 8px);
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  background:
+    var(--gradient-one),
+    var(--gradient-two),
+    var(--gradient-three),
+    var(--gradient-four),
+    var(--gradient-five),
+    var(--gradient-six),
+    var(--gradient-seven),
+    var(--gradient-base);
+  opacity: calc(var(--edge-proximity, 0) / 100 * var(--fill-opacity, 0.2));
+  transition: opacity 0.12s ease;
+}
+
+/* Inner card content — above all glow layers */
+.border-glow-inner {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+}
+
+/* Suppress transitions during programmatic sweep animation */
+.sweep-active::before,
+.sweep-active .edge-light {
+  transition: none;
+}
+
+/* ============ END BORDER GLOW ============ */
