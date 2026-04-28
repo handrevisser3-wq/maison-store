@@ -401,3 +401,60 @@
 }
 
 /* ============ END BORDER GLOW ============ */
+
+/* ======== LEOPARD HEADER ANIMATION ======== */
+
+.leopard-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* All header content siblings stay above the leopard */
+.leopard-track ~ * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes leopardWalkAcross {
+  0%   { transform: translateX(-140px) translateY(-50%) scaleX(1); }
+  20%  { transform: translateX(-140px) translateY(calc(-50% - 2px)) scaleX(1); }
+  48%  { transform: translateX(calc(100vw + 140px)) translateY(-50%) scaleX(1); }
+  50%  { transform: translateX(calc(100vw + 140px)) translateY(-50%) scaleX(-1); }
+  70%  { transform: translateX(calc(100vw + 140px)) translateY(calc(-50% - 2px)) scaleX(-1); }
+  98%  { transform: translateX(-140px) translateY(-50%) scaleX(-1); }
+  100% { transform: translateX(-140px) translateY(-50%) scaleX(1); }
+}
+
+.leopard-walking {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 54px;
+  width: auto;
+  animation: leopardWalkAcross 18s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+  opacity: 0.88;
+}
+
+@media (max-width: 768px) {
+  .leopard-walking {
+    height: 38px;
+    animation-duration: 14s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leopard-walking {
+    animation: none;
+    display: none;
+  }
+}
+
+/* ======== END LEOPARD ANIMATION ======== */

@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 210" fill="none">
+
+  <!-- TAIL: thick stroke curving up-left -->
+  <path d="M 105 112 C 80 98 58 76 42 50 C 30 30 22 14 14 5"
+        stroke="#C9A830" stroke-width="17" stroke-linecap="round"/>
+  <!-- Tail tip (black) -->
+  <ellipse cx="11" cy="4" rx="13" ry="10" fill="#111" transform="rotate(-35 11 4)"/>
+
+  <!-- MAIN BODY -->
+  <path d="M 100 118
+           C 108 83 148 62 218 59
+           C 290 56 358 66 393 84
+           C 412 94 409 114 394 120
+           C 361 133 288 138 218 138
+           C 152 138 107 133 100 118 Z"
+        fill="#C9A830"/>
+
+  <!-- BELLY lighter underside -->
+  <path d="M 135 136 C 220 150 346 141 389 124
+           C 380 144 290 154 220 153
+           C 164 153 138 148 135 136 Z"
+        fill="#DFC058"/>
+
+  <!-- NECK bridge -->
+  <path d="M 389 89 C 412 72 436 66 447 69
+           C 458 73 455 91 449 101
+           C 440 112 416 117 394 112 Z"
+        fill="#C9A830"/>
+
+  <!-- HEAD -->
+  <circle cx="464" cy="83" r="32" fill="#C9A830"/>
+
+  <!-- MUZZLE -->
+  <ellipse cx="484" cy="95" rx="19" ry="16" fill="#DFC058"/>
+
+  <!-- EYE -->
+  <ellipse cx="468" cy="76" rx="7" ry="6" fill="white"/>
+  <ellipse cx="468" cy="77" rx="4" ry="5" fill="#111"/>
+  <circle cx="470" cy="74" r="1.5" fill="white"/>
+
+  <!-- NOSE -->
+  <ellipse cx="487" cy="92" rx="4" ry="3" fill="#111"/>
+
+  <!-- WHISKER dots -->
+  <circle cx="478" cy="98" r="2" fill="#333"/>
+  <circle cx="472" cy="100" r="2" fill="#333"/>
+  <circle cx="477" cy="103" r="2" fill="#333"/>
+
+  <!-- EAR -->
+  <path d="M 440 53 L 448 36 L 460 53 Z" fill="#C9A830"/>
+  <path d="M 443 51 L 449 40 L 458 51 Z" fill="#111"/>
+
+  <!-- REAR LEGS -->
+  <line x1="148" y1="135" x2="140" y2="194" stroke="#C9A830" stroke-width="23" stroke-linecap="round"/>
+  <line x1="174" y1="137" x2="171" y2="196" stroke="#C9A830" stroke-width="20" stroke-linecap="round"/>
+  <!-- Rear paws -->
+  <ellipse cx="139" cy="197" rx="17" ry="8" fill="#C9A830"/>
+  <ellipse cx="170" cy="199" rx="15" ry="7" fill="#C9A830"/>
+
+  <!-- FRONT LEGS -->
+  <line x1="336" y1="128" x2="329" y2="192" stroke="#C9A830" stroke-width="23" stroke-linecap="round"/>
+  <line x1="361" y1="123" x2="363" y2="194" stroke="#C9A830" stroke-width="20" stroke-linecap="round"/>
+  <!-- Front paws -->
+  <ellipse cx="328" cy="195" rx="17" ry="8" fill="#C9A830"/>
+  <ellipse cx="362" cy="197" rx="15" ry="7" fill="#C9A830"/>
+
+  <!-- SPOTS row 1 — along spine -->
+  <path d="M 118 83 C 112 72 125 67 128 78" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 152 70 C 146 59 159 54 162 65" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 187 64 C 181 53 194 48 197 59" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 222 61 C 216 50 229 45 232 56" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 257 61 C 251 50 264 45 267 56" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 292 65 C 286 54 299 49 302 60" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 325 73 C 319 62 332 57 335 68" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 357 82 C 351 71 364 66 367 77" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- SPOTS row 2 — mid body -->
+  <path d="M 133 100 C 127 89 140 84 143 95" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 167 90 C 161 79 174 74 177 85" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 202 85 C 196 74 209 69 212 80" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 237 83 C 231 72 244 67 247 78" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 272 84 C 266 73 279 68 282 79" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 306 88 C 300 77 313 72 316 83" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 337 96 C 331 85 344 80 347 91" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+  <path d="M 366 104 C 360 93 373 88 376 99" stroke="#111" stroke-width="7" stroke-linecap="round"/>
+
+  <!-- SPOTS row 3 — lower flank -->
+  <path d="M 153 117 C 147 106 160 101 163 112" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 209 113 C 203 102 216 97 219 108" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 265 112 C 259 101 272 96 275 107" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 320 113 C 314 102 327 97 330 108" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- TAIL spots -->
+  <path d="M 79 104 C 73 94 84 91 87 100" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+  <path d="M 56 84 C 51 75 61 72 64 80" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- NECK spot -->
+  <path d="M 415 84 C 409 75 420 71 423 80" stroke="#111" stroke-width="6" stroke-linecap="round"/>
+
+  <!-- HEAD spot -->
+  <path d="M 452 76 C 447 68 455 65 457 72" stroke="#111" stroke-width="5" stroke-linecap="round"/>
+
+</svg>
