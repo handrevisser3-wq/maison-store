@@ -16,14 +16,14 @@ export default function FeaturedProducts() {
               key={product.id}
               className="product-card-glow"
               edgeSensitivity={15}
-              glowColor="0 0 95"
+              glowColor="0 70 85"
               backgroundColor="#F5F0EA"
               borderRadius={8}
               glowRadius={60}
               glowIntensity={2.5}
               coneSpread={35}
               animated={false}
-              colors={["#FFFFFF", "#F0F0F0", "#E8E8E8"]}
+              colors={["#F4A0A0", "#F9BEBE", "#E88888"]}
               fillOpacity={0.6}
             >
               <ProductCard product={product} />
