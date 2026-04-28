@@ -315,20 +315,14 @@
   border-radius: var(--border-radius, 8px);
   background: var(--card-bg, transparent);
   isolation: isolate;
+  overflow: visible;
   transition: box-shadow 0.25s ease;
   border: 1px solid rgb(196 168 130 / 30%);
 }
 
-/* Multi-layer glow on hover — inset (inner glow) + outer spread */
+/* Outer-only glow on hover — no inset shadows (they bleed inside the card) */
 .border-glow-card:hover {
   box-shadow:
-    inset 0 0 0 2px var(--glow-color),
-    inset 0 0 4px 0 var(--glow-color-60),
-    inset 0 0 10px 0 var(--glow-color-50),
-    inset 0 0 20px 0 var(--glow-color-40),
-    inset 0 0 40px 0 var(--glow-color-30),
-    inset 0 0 60px 4px var(--glow-color-20),
-    inset 0 0 100px 4px var(--glow-color-10),
     0 0 4px 0 var(--glow-color-60),
     0 0 10px 0 var(--glow-color-50),
     0 0 20px 0 var(--glow-color-40),
@@ -367,31 +361,26 @@
   z-index: 0;
 }
 
-/* Soft fill gradient overlay */
+/* Fill gradient — disabled: draws inside card and covers product images */
 .edge-light {
   position: absolute;
   inset: 0;
   border-radius: var(--border-radius, 8px);
   pointer-events: none;
   z-index: 1;
-  overflow: hidden;
-  background:
-    var(--gradient-one),
-    var(--gradient-two),
-    var(--gradient-three),
-    var(--gradient-four),
-    var(--gradient-five),
-    var(--gradient-six),
-    var(--gradient-seven),
-    var(--gradient-base);
-  opacity: calc(var(--edge-proximity, 0) / 100 * var(--fill-opacity, 0.2));
-  transition: opacity 0.12s ease;
+  opacity: 0 !important;
 }
 
-/* Inner card content — above all glow layers */
+/* Inner card content — clips content cleanly, glow stays outside */
 .border-glow-inner {
+  display: flex;
+  flex-direction: column;
   position: relative;
+  overflow: hidden;
   z-index: 2;
+  border-radius: inherit;
+  background: #F5F0EA;
+  width: 100%;
   height: 100%;
 }
 
@@ -399,6 +388,16 @@
 .sweep-active::before,
 .sweep-active .edge-light {
   transition: none;
+}
+
+/* Product card specific — outer glow visible, inner content clipped */
+.product-card-glow {
+  overflow: visible !important;
+}
+
+.product-card-glow .border-glow-inner {
+  overflow: hidden !important;
+  border-radius: 8px;
 }
 
 /* ============ END BORDER GLOW ============ */

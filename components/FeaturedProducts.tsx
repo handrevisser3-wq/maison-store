@@ -14,6 +14,7 @@ export default function FeaturedProducts() {
           {featured.map((product) => (
             <BorderGlow
               key={product.id}
+              className="product-card-glow"
               edgeSensitivity={15}
               glowColor="38 60 72"
               backgroundColor="#F5F0EA"
