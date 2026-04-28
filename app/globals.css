@@ -317,7 +317,7 @@
   isolation: isolate;
   overflow: visible;
   transition: box-shadow 0.25s ease;
-  border: 1px solid rgb(244 160 160 / 25%);
+  border: 1px solid rgb(200 200 200 / 20%);
 }
 
 /* Outer-only glow on hover — no inset shadows (they bleed inside the card) */
