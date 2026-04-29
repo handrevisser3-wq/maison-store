@@ -68,7 +68,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Price + action */}
-      <div className="flex items-center justify-between pl-3">
+      <div className="flex items-center justify-between pl-3 pr-3 pb-4">
         <p className="text-base font-medium text-charcoal">
           R{product.price.toLocaleString()}
         </p>
