@@ -1,64 +1,90 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col items-center justify-center overflow-hidden bg-charcoal">
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Ambient gold gradients — depth without images */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_65%_25%,_rgba(201,169,110,0.10)_0%,_transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_40%_at_20%_75%,_rgba(201,169,110,0.06)_0%,_transparent_60%)] pointer-events-none" />
+      {/* Background photo */}
+      <Image
+        src="/images/hero/hero-interior.jpg"
+        alt="Warm, moody Cape Town living room — the MAISON aesthetic"
+        fill
+        priority
+        quality={90}
+        className="object-cover object-center"
+        sizes="100vw"
+      />
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6 sm:px-10 max-w-3xl mx-auto">
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/35" />
 
-        {/* Eyebrow label */}
-        <p className="hero-label text-[10px] tracking-[0.55em] uppercase text-gold mb-10">
+      {/* Content — sits above overlay */}
+      <div className="relative z-10 text-center px-6 sm:px-10 max-w-3xl mx-auto flex flex-col items-center gap-0">
+
+        {/* Eyebrow */}
+        <p className="hero-label text-[10px] tracking-[0.55em] uppercase mb-8"
+          style={{ color: "#C4A882" }}
+        >
           Curated in Cape Town
         </p>
 
         {/* Headline */}
-        <h1 className="hero-headline font-serif leading-[1.06] mb-7 text-cream"
-          style={{ fontSize: "clamp(2.6rem, 6vw, 5.2rem)" }}
+        <h1 className="hero-headline font-serif leading-[1.06] mb-6 text-white"
+          style={{ fontSize: "clamp(2.8rem, 6.5vw, 5.5rem)" }}
         >
           Live Beautifully.
           <br />
-          <span className="italic text-gold" style={{ fontSize: "clamp(2.2rem, 5.2vw, 4.6rem)" }}>
+          <span
+            className="italic"
+            style={{
+              color: "#C9A96E",
+              fontSize: "clamp(2.4rem, 5.8vw, 5rem)",
+            }}
+          >
             Live Proudly South African.
           </span>
         </h1>
 
-        {/* Gold hairline divider */}
-        <div className="mx-auto mb-8 w-10 h-px bg-gold opacity-40" />
-
         {/* Subheading */}
-        <p className="hero-subheading text-cream/55 leading-relaxed max-w-md mx-auto mb-14"
-          style={{ fontSize: "clamp(0.82rem, 1.1vw, 0.96rem)" }}
+        <p
+          className="hero-subheading leading-relaxed max-w-md mx-auto mb-12"
+          style={{
+            color: "rgba(255,255,255,0.80)",
+            fontSize: "clamp(0.85rem, 1.1vw, 1rem)",
+          }}
         >
-          Discover home décor and lifestyle pieces thoughtfully selected
-          for the modern South African home.
+          Discover home décor and lifestyle pieces thoughtfully
+          selected for the modern South African home.
         </p>
 
         {/* CTA buttons */}
         <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/shop">
-            <Button className="bg-gold hover:bg-gold-dark text-charcoal font-sans font-medium text-[10px] tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto">
+            <Button
+              className="font-sans font-medium text-[10px] tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto"
+              style={{
+                backgroundColor: "#C4A882",
+                color: "#1C1C1A",
+                border: "none",
+              }}
+            >
               Explore the Collection
             </Button>
           </Link>
           <Link href="/about">
             <Button
-              variant="outline"
-              className="border-cream/25 text-cream hover:bg-cream/8 hover:border-cream/50 font-sans font-medium text-[10px] tracking-widest uppercase px-10 py-6 h-auto rounded-none bg-transparent transition-all duration-300 w-full sm:w-auto"
+              className="font-sans font-medium text-[10px] tracking-widest uppercase px-10 py-6 h-auto rounded-none transition-all duration-300 w-full sm:w-auto bg-transparent text-white"
+              style={{
+                border: "1px solid rgba(255,255,255,0.55)",
+              }}
             >
               Our Story
             </Button>
           </Link>
         </div>
       </div>
-
-      {/* Bottom page-blend into parchment */}
-      <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-t from-[#EDE8E1]/20 to-transparent pointer-events-none" />
     </section>
   );
 }
