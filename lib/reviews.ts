@@ -29,58 +29,6 @@ export const reviews: Review[] = [
     featured: true,
   },
   {
-    id: "r2",
-    productId: "1",
-    productName: "Luxury Soy Candle Trio",
-    stars: 5,
-    headline: "My home finally feels like a magazine",
-    body: "I've been slowly decorating my new apartment in Joburg and MAISON has become my go-to. The quality is genuinely impressive for the price. Fast delivery too — arrived in three days!",
-    name: "Lerato K.",
-    location: "Johannesburg, Gauteng",
-    date: "2 February 2025",
-    verified: true,
-    featured: true,
-  },
-  {
-    id: "r3",
-    productId: "1",
-    productName: "Luxury Soy Candle Trio",
-    stars: 4.5,
-    headline: "Great quality, love the aesthetic",
-    body: "Bought the candles as a gift for my sister and she absolutely loves them. The scent fills the whole room without being overwhelming. Only reason it's not 5 stars is the delivery took a little longer than expected to Durban.",
-    name: "Priya N.",
-    location: "Durban, KwaZulu-Natal",
-    date: "28 January 2025",
-    verified: true,
-    featured: true,
-  },
-  {
-    id: "r4",
-    productId: "4",
-    productName: "Ceramic Pour-Over Coffee Set",
-    stars: 5,
-    headline: "Worth every cent",
-    body: "I was hesitant to spend this much online but I am so glad I did. The product is solid, beautifully made, and looks exactly like the photos. MAISON is the real deal — will definitely be ordering again before winter.",
-    name: "Andile D.",
-    location: "Pretoria, Gauteng",
-    date: "19 March 2025",
-    verified: true,
-    featured: true,
-  },
-  {
-    id: "r5",
-    productId: "5",
-    productName: "Brushed Gold Tealight Set",
-    stars: 5,
-    headline: "Perfect addition to my living room",
-    body: "I redid my whole lounge recently and this was the finishing touch I needed. The craftsmanship is beautiful — you can tell it's not cheap mass-produced stuff. Packaged with care too, no damage on arrival.",
-    name: "Chantél V.",
-    location: "Stellenbosch, Western Cape",
-    date: "5 April 2025",
-    verified: true,
-    featured: true,
-  },
-  {
     id: "r6",
     productId: "6",
     productName: "Stonewashed Linen Pillowcase Set",
@@ -93,20 +41,18 @@ export const reviews: Review[] = [
     verified: true,
     featured: true,
   },
-
-  // ── Product 1 — Luxury Soy Candle Trio ────────────────────────────────────
-
   {
-    id: "r7",
-    productId: "1",
-    productName: "Luxury Soy Candle Trio",
+    id: "r20",
+    productId: "10",
+    productName: "Velvet Storage Cube Set",
     stars: 5,
-    headline: "My whole house smells amazing",
-    body: "I've burned the Sandalwood & Vanilla one almost every evening since it arrived. The scent is so warm and sophisticated — not cheap or synthetic at all. The wooden wick crackling is also such a nice touch. Already planning to order again when it runs out!",
-    name: "Zanele M.",
-    location: "East London, Eastern Cape",
-    date: "7 March 2025",
+    headline: "Stylish and genuinely functional",
+    body: "I ordered the Navy pair for my home office bookshelf and they've completely transformed the space. They hold a surprising amount — extra cables, files, all sorts. The velvet feels premium and the leather handles are a beautiful finishing detail. Sharp product, no regrets.",
+    name: "Keneilwe O.",
+    location: "Polokwane, Limpopo",
+    date: "21 January 2025",
     verified: true,
+    featured: true,
   },
 
   // ── Product 2 — Marble & Acacia Cheese Board Set ──────────────────────────
@@ -148,36 +94,6 @@ export const reviews: Review[] = [
     name: "Riaan H.",
     location: "Hermanus, Western Cape",
     date: "1 April 2025",
-    verified: true,
-  },
-
-  // ── Product 4 — Ceramic Pour-Over Coffee Set ──────────────────────────────
-
-  {
-    id: "r11",
-    productId: "4",
-    productName: "Ceramic Pour-Over Coffee Set",
-    stars: 5,
-    headline: "Makes my morning ritual feel luxurious",
-    body: "The Chalk White set is absolutely gorgeous on my kitchen counter. Even when I'm not making coffee it just looks beautiful. The ceramic is thick and well-made, and the wooden collar detail is such an elegant touch. Sharp quality — totally elevated my whole morning.",
-    name: "Tamsin V.",
-    location: "Paarl, Western Cape",
-    date: "8 February 2025",
-    verified: true,
-  },
-
-  // ── Product 5 — Brushed Gold Tealight Set ────────────────────────────────
-
-  {
-    id: "r12",
-    productId: "5",
-    productName: "Brushed Gold Tealight Set",
-    stars: 5,
-    headline: "Adds so much warmth to a room",
-    body: "I placed these three on my dining table and the effect when they're lit is just gorgeous — the gold catches the candlelight beautifully. The different heights work so well together. Already bought a second set to give as a gift. No tarnishing even after weeks of use.",
-    name: "Nompumelelo S.",
-    location: "Midrand, Gauteng",
-    date: "20 March 2025",
     verified: true,
   },
 
@@ -280,18 +196,6 @@ export const reviews: Review[] = [
   // ── Product 10 — Velvet Storage Cube Set ─────────────────────────────────
 
   {
-    id: "r20",
-    productId: "10",
-    productName: "Velvet Storage Cube Set",
-    stars: 5,
-    headline: "Stylish and genuinely functional",
-    body: "I ordered the Navy pair for my home office bookshelf and they've completely transformed the space. They hold a surprising amount — extra cables, files, all sorts. The velvet feels premium and the leather handles are a beautiful finishing detail. Sharp product, no regrets.",
-    name: "Keneilwe O.",
-    location: "Polokwane, Limpopo",
-    date: "21 January 2025",
-    verified: true,
-  },
-  {
     id: "r21",
     productId: "10",
     productName: "Velvet Storage Cube Set",
@@ -328,33 +232,6 @@ export const reviews: Review[] = [
     name: "Bongi N.",
     location: "Alexandra, Gauteng",
     date: "14 March 2025",
-    verified: true,
-  },
-
-  // ── Product 12 — Nordic Crystal Bud Vase Set ──────────────────────────────
-
-  {
-    id: "r24",
-    productId: "12",
-    productName: "Nordic Crystal Bud Vase Set",
-    stars: 5,
-    headline: "Exactly the sculptural touch I wanted",
-    body: "I've been looking for vases that look beautiful even without flowers in them, and these are exactly that. The faceted glass scatters light so beautifully in the afternoon sun. The pair at different heights works perfectly on my sideboard. Delivered with great care too.",
-    name: "Monique C.",
-    location: "Franschhoek, Western Cape",
-    date: "17 February 2025",
-    verified: true,
-  },
-  {
-    id: "r25",
-    productId: "12",
-    productName: "Nordic Crystal Bud Vase Set",
-    stars: 5,
-    headline: "Perfect with dried botanicals",
-    body: "I styled the taller one with a branch of dried protea and the shorter one with a cotton stem — it looks like something from an interior magazine. The glass is clear and thick, really substantial in hand. Such a considered, beautiful product from MAISON.",
-    name: "Nosipho B.",
-    location: "Umhlanga, KwaZulu-Natal",
-    date: "3 April 2025",
     verified: true,
   },
 
@@ -409,33 +286,6 @@ export const reviews: Review[] = [
     name: "Vusi T.",
     location: "Soweto, Gauteng",
     date: "2 April 2025",
-    verified: true,
-  },
-
-  // ── Product 15 — Handblown Art Glass Vase ────────────────────────────────
-
-  {
-    id: "r30",
-    productId: "15",
-    productName: "Handblown Art Glass Vase",
-    stars: 5,
-    headline: "A genuine work of art",
-    body: "I've bought a lot of vases but nothing compares to this. The variations in glass wall thickness that you can see when light hits it — that's what handblown actually means. I have the tall one and it's the most-commented-on piece in my home. Beautifully made.",
-    name: "Anri S.",
-    location: "Hermanus, Western Cape",
-    date: "11 January 2025",
-    verified: true,
-  },
-  {
-    id: "r31",
-    productId: "15",
-    productName: "Handblown Art Glass Vase",
-    stars: 5,
-    headline: "Makes a stunning gift",
-    body: "Bought the medium size as a birthday gift and the person receiving it was absolutely speechless. It arrived so well-packaged — bubble wrapped twice. The way it catches light on a windowsill is just magical. MAISON packaging is also very on point. Will definitely order again.",
-    name: "Nobuhle M.",
-    location: "Newcastle, KwaZulu-Natal",
-    date: "25 March 2025",
     verified: true,
   },
 
@@ -544,33 +394,6 @@ export const reviews: Review[] = [
     name: "Sifiso N.",
     location: "Hilton, KwaZulu-Natal",
     date: "28 February 2025",
-    verified: true,
-  },
-
-  // ── Product 20 — Borosilicate Glass Storage Jar Set ──────────────────────
-
-  {
-    id: "r40",
-    productId: "20",
-    productName: "Borosilicate Glass Storage Jar Set",
-    stars: 5,
-    headline: "My pantry has never looked so good",
-    body: "I filled these with my coffee, rice and quinoa and they look absolutely beautiful on my kitchen shelf. The bamboo lids are a lovely touch — natural and elegant. The silicone seal keeps everything fresh. I've already ordered a second set because I want to do my whole pantry. Lekker!",
-    name: "Marié V.",
-    location: "Oudtshoorn, Western Cape",
-    date: "25 January 2025",
-    verified: true,
-  },
-  {
-    id: "r41",
-    productId: "20",
-    productName: "Borosilicate Glass Storage Jar Set",
-    stars: 5,
-    headline: "Quality that you can feel",
-    body: "The glass is thick and weighty — you can tell immediately this isn't cheap glass. The three sizes work perfectly together: my coffee in the small one, grains in the medium, and pasta in the large. They look so intentional and clean. My whole family wants a set now!",
-    name: "Thulisile N.",
-    location: "Durban, KwaZulu-Natal",
-    date: "8 March 2025",
     verified: true,
   },
 ];

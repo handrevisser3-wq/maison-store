@@ -15,23 +15,6 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    id: "1",
-    name: "Luxury Soy Candle Trio",
-    price: 999,
-    shortDescription: "Three hand-poured soy candles in apothecary amber glass.",
-    description:
-      "A curated set of three hand-poured soy wax candles, each housed in a reusable amber glass apothecary jar. Crafted with a clean coconut-soy blend and a crackling wooden wick, every candle burns for up to 45 hours. Three sophisticated, evolving scents — Sandalwood & Vanilla, Jasmine & White Musk, and Cedarwood & Black Fig — make this an effortless gift or a deeply personal ritual. The amber glass protects the wax from UV degradation and can be repurposed as a storage jar long after the candle is spent.",
-    category: "Home Fragrance",
-    image: "/images/products/soy-candle-trio.jpg",
-    variants: ["Sandalwood & Vanilla", "Jasmine & White Musk", "Cedarwood & Black Fig"],
-    variantImages: {
-      "Sandalwood & Vanilla": "/images/products/soy-candle-sandalwood-vanilla.jpg",
-      "Jasmine & White Musk":  "/images/products/soy-candle-jasmine-musk.jpg",
-      "Cedarwood & Black Fig": "/images/products/soy-candle-cedarwood-fig.jpg",
-    },
-    featured: true,
-  },
-  {
     id: "2",
     name: "Marble & Acacia Cheese Board Set",
     price: 1299,
@@ -66,38 +49,6 @@ export const products: Product[] = [
       "Stone":     "/images/products/knit-blanket-stone.jpg",
     },
     featured: true,
-  },
-  {
-    id: "4",
-    name: "Ceramic Pour-Over Coffee Set",
-    price: 1149,
-    shortDescription: "Dripper, server & two cups in matte reactive glaze.",
-    description:
-      "A complete pour-over brewing set for the home barista who appreciates considered design as much as exceptional coffee. The hand-thrown ceramic dripper sits on a turned wooden collar over a matching ceramic server, accompanied by two generous cups — each holding 220ml. Finished in a matte reactive glaze — chalk white, charcoal, or sage — that subtly shifts tone in different lights. The set is designed to slow your morning down, producing a clean, bright cup of filter coffee while looking beautiful on a kitchen shelf. Dishwasher safe.",
-    category: "Kitchen",
-    image: "/images/products/ceramic-pour-over.jpg",
-    variants: ["Chalk White", "Charcoal", "Sage Green"],
-    variantImages: {
-      "Chalk White": "/images/products/pour-over-chalk-white.jpg",
-      "Charcoal":    "/images/products/pour-over-charcoal.jpg",
-      "Sage Green":  "/images/products/pour-over-sage-green.jpg",
-    },
-  },
-  {
-    id: "5",
-    name: "Brushed Gold Tealight Set",
-    price: 1049,
-    shortDescription: "Set of 3 geometric holders in brushed 18k gold-plate.",
-    description:
-      "Three geometric tealight holders in brushed 18k gold-plated steel, each in a different height and silhouette — a low sphere, a ribbed cylinder, and a faceted diamond. Together they create a dynamic, layered tabletop composition; placed individually, each piece holds its own. Designed to catch and refract candlelight in the most flattering way, these holders complement both modern minimalist and warmly layered interiors. Suitable for standard tealight candles. The brushed finish conceals fingerprints and keeps its warmth over time.",
-    category: "Decor",
-    image: "/images/products/gold-tealight-set.jpg",
-    variants: ["Brushed Gold", "Brushed Silver", "Matte Black"],
-    variantImages: {
-      "Brushed Gold":   "/images/products/tealight-brushed-gold.jpg",
-      "Brushed Silver": "/images/products/tealight-brushed-silver.jpg",
-      "Matte Black":    "/images/products/tealight-matte-black.jpg",
-    },
   },
   {
     id: "6",
@@ -197,16 +148,6 @@ export const products: Product[] = [
     },
   },
   {
-    id: "12",
-    name: "Nordic Crystal Bud Vase Set",
-    price: 1199,
-    shortDescription: "Set of 2 faceted glass vases — tall 28 cm & short 18 cm.",
-    description:
-      "Two slender bud vases in clear handblown glass with a delicately faceted surface that scatters light beautifully across any surface they touch. Sold as a complementary pair — one tall (28cm) and one short (18cm) — they work together as a considered composition or independently on different surfaces. Equally beautiful with a single garden cutting, a stem of dried botanicals, or left entirely empty as simple, elegant sculptural objects. The thick base gives both vases a reassuring weight and stability.",
-    category: "Decor",
-    image: "/images/products/crystal-bud-vases.jpg",
-  },
-  {
     id: "13",
     name: "Stonewashed Linen Napkin Set",
     price: 1049,
@@ -232,21 +173,6 @@ export const products: Product[] = [
       "A complete 16-piece cutlery service for four — dinner forks, salad forks, dinner knives, and dessert spoons — in 18/10 stainless steel with a brushed rose gold PVD finish. The durable PVD coating is resistant to tarnishing and dishwasher-safe. Each piece has been weighted for balance, and the flat, tapering profile sits comfortably in the hand. Presented in a velvet-lined gift box, this set elevates every meal from the functional to the considered. A statement on any table.",
     category: "Kitchen",
     image: "/images/products/rose-gold-cutlery.jpg",
-  },
-  {
-    id: "15",
-    name: "Handblown Art Glass Vase",
-    price: 1049,
-    shortDescription: "Freeform handblown clear glass. Each piece is unique.",
-    description:
-      "A statement vase in handblown borosilicate glass with a freeform tapered silhouette — subtle variations in the glass wall thickness and surface texture are an intentional mark of the glassblowing process, making each piece genuinely one of a kind. Works beautifully with large single branches, an armful of dried pampas, or a single dramatic stem. Also striking left entirely empty as a sculptural object on a shelf or sideboard. Borosilicate glass is more resistant to thermal shock than standard glass, making it durable in daily use.",
-    category: "Decor",
-    image: "/images/products/handblown-glass-vase.jpg",
-    sizes: ["Medium (35 cm)", "Tall (50 cm)"],
-    variantImages: {
-      "Medium (35 cm)": "/images/products/glass-vase-medium.jpg",
-      "Tall (50 cm)":   "/images/products/glass-vase-tall.jpg",
-    },
   },
   {
     id: "16",
@@ -307,16 +233,6 @@ export const products: Product[] = [
       "Black Marquina": "/images/products/marble-coaster-black-marquina.jpg",
       "Green Onyx":     "/images/products/marble-coaster-green-onyx.jpg",
     },
-  },
-  {
-    id: "20",
-    name: "Borosilicate Glass Storage Jar Set",
-    price: 1199,
-    shortDescription: "Set of 3 airtight glass jars — 500ml, 1L & 1.5L.",
-    description:
-      "Three airtight glass storage jars in heat-resistant borosilicate glass, fitted with bamboo lids and a silicone seal that locks in freshness for up to three times longer than standard screw-top jars. The set includes three graduated sizes — 500ml, 1L, and 1.5L — designed to hold dry pantry goods, coffee, grains, or dried herbs in a way that looks as considered as it is practical. Borosilicate glass is non-porous, odour-neutral, and completely transparent for at-a-glance contents. Dishwasher safe.",
-    category: "Kitchen",
-    image: "/images/products/glass-storage-jars.jpg",
   },
   {
     id: "21",
