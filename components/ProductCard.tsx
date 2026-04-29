@@ -56,7 +56,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Text */}
-        <div className="space-y-1 mb-4">
+        <div className="space-y-1 mb-4 pl-3">
           <p className="text-xs tracking-widest uppercase text-stone">
             {product.category}
           </p>
@@ -68,7 +68,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Price + action */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between pl-3">
         <p className="text-base font-medium text-charcoal">
           R{product.price.toLocaleString()}
         </p>
