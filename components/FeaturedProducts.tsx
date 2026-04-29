@@ -15,15 +15,15 @@ export default function FeaturedProducts() {
             <BorderGlow
               key={product.id}
               className="product-card-glow"
-              edgeSensitivity={15}
-              glowColor="0 0 80"
-              backgroundColor="#F5F0EA"
+              edgeSensitivity={35}
+              glowColor="35 60 70"
+              backgroundColor="#FAFAF8"
               borderRadius={8}
-              glowRadius={35}
-              glowIntensity={1.0}
+              glowRadius={20}
+              glowIntensity={0.4}
               coneSpread={35}
               animated={false}
-              colors={["#D0D0D0", "#E0E0E0", "#C0C0C0"]}
+              colors={["#d4b896", "#c9a96e", "#e8d5b7"]}
               fillOpacity={0.15}
             >
               <ProductCard product={product} />
