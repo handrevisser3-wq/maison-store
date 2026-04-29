@@ -34,7 +34,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <article className="group">
+    <article className="group flex flex-col">
       {/* Image */}
       <Link href={`/shop/${product.id}`} className="block">
         <div className="relative overflow-hidden bg-parchment aspect-[4/5] mb-4">
@@ -68,7 +68,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Price + action */}
-      <div className="flex items-center justify-between pl-3 pr-3 pb-4">
+      <div className="flex items-center justify-between pl-3 pr-3 pb-4 mt-auto">
         <p className="text-base font-medium text-charcoal">
           R{product.price.toLocaleString()}
         </p>
