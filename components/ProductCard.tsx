@@ -37,12 +37,12 @@ export default function ProductCard({ product }: ProductCardProps) {
     <article className="group flex flex-col">
       {/* Image */}
       <Link href={`/shop/${product.id}`} className="block">
-        <div className="relative overflow-hidden bg-parchment aspect-[4/5] mb-4">
+        <div className="relative overflow-hidden aspect-[4/5] mb-4" style={{ backgroundColor: "#F5F5F3" }}>
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-contain transition-transform duration-700 ease-out group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
           {/* MAISON watermark */}
