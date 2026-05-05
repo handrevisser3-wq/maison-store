@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npx wrangler pages functions build --outdir=out --output-routes-path=out/_routes.json --directory=functions && mv out/index.js out/_worker.js",
     "start": "next start",
     "lint": "next lint"
   },

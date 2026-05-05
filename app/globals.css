@@ -252,14 +252,15 @@
   transition: none;
 }
 
-/* Product card specific — outer glow visible, inner content clipped */
+/* Product card specific — outer glow visible, inner content clipped, no rounded corners */
 .product-card-glow {
   overflow: visible !important;
+  border-radius: 0 !important;
 }
 
 .product-card-glow .border-glow-inner {
   overflow: hidden !important;
-  border-radius: 8px;
+  border-radius: 0 !important;
 }
 
 /* ============ END BORDER GLOW ============ */
