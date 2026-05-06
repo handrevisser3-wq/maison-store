@@ -180,6 +180,18 @@ export const reviews: Review[] = [
     date: "22 March 2025",
     verified: true,
   },
+  {
+    id: "r38",
+    productId: "6",
+    productName: "Stonewashed Linen Pillowcase Set",
+    stars: 4,
+    headline: "Beautiful quality, minor hiccup",
+    body: "Really impressed with the overall quality and packaging — everything arrived beautifully presented. The only reason I'm not giving 5 stars is that delivery took a day longer than expected. Will definitely order again though, the product itself is stunning.",
+    name: "Megan R.",
+    location: "Pretoria, Gauteng",
+    date: "2 May 2025",
+    verified: true,
+  },
 ];
 
 export const featuredReviews = reviews.filter((r) => r.featured);
