@@ -18,7 +18,7 @@ export default function FeaturedProducts() {
               edgeSensitivity={35}
               glowColor="35 60 70"
               backgroundColor="#FAFAF8"
-              borderRadius={8}
+              borderRadius={0}
               glowRadius={20}
               glowIntensity={0.4}
               coneSpread={35}
