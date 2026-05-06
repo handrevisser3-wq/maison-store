@@ -26,7 +26,7 @@ export default function ReviewsSection() {
         </div>
 
         {/* Cards — horizontal scroll on mobile, 3-col grid on desktop */}
-        <div className="flex md:grid md:grid-cols-3 gap-5 md:gap-7 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7 overflow-x-auto md:overflow-visible scrollbar-hide snap-x snap-mandatory md:snap-none -mx-4 px-4 md:mx-0 md:px-0 pb-4 md:pb-0">
           {featuredReviews.map((review) => (
             <div
               key={review.id}

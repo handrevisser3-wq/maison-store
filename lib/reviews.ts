@@ -191,6 +191,7 @@ export const reviews: Review[] = [
     location: "Pretoria, Gauteng",
     date: "2 May 2025",
     verified: true,
+    featured: true,
   },
 ];
 
